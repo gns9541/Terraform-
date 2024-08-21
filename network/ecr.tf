@@ -2,13 +2,13 @@
 # 도커 이미지를 저장할 레포지토리를 생성하고 policy를 설정
 
 # ECR 리포지토리를 생성
-#   - name: "mango/service_${var.env_suffix}"로 설정되어 환경별로 고유한 이름
+#   - name: "nodebb/service_${var.env_suffix}"로 설정되어 환경별로 고유한 이름
 #   - image_tag_mutability: "MUTABLE"로 설정되어 이미지 태그를 덮어쓸 수 있음
 #   - image_scanning_configuration:
 #     - scan_on_push = false로 설정되어 이미지 푸시 시 자동 스캔 비활성화
 
 resource "aws_ecr_repository" "repo" {
-  name = "mango/service_${var.env_suffix}"
+  name = "nodebb/service_${var.env_suffix}"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
